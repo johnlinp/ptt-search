@@ -29,5 +29,5 @@ else:
     begin_pos = int(begin_pos)
     end_pos = int(end_pos)
 
-for pos in range(begin_pos, end_pos):
+for pos in range(begin_pos, end_pos + 1):
     print pos
