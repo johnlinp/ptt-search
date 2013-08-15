@@ -29,5 +29,21 @@ else:
     begin_pos = int(begin_pos)
     end_pos = int(end_pos)
 
+found = []
 for pos in range(begin_pos, end_pos + 1):
-    print pos
+    report = '\r正在找第%s篇' % pos
+    if found:
+        joins = ' '.join(found[:5])
+        if len(found) > 5:
+            joins += '...'
+        report += ' 已經在第%s篇找到' % joins
+    print report,
+    sys.stdout.flush()
+    content = reader.get_article_content(pos)
+    if keyword in content:
+        found.append(str(pos))
+
+print
+print '搜尋結果:', ' '.join(found)
+
+
